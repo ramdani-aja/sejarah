@@ -1,9 +1,21 @@
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(251, 236, 218);
+    display: flex;
+    width: 4000px;
+    overflow-x: auto;   /* boleh scroll ke kanan */
+    overflow-y: hidden;
 }
 nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background-color: rgb(0, 128, 128);
     display: flex;
+    gap: 20px;
     align-items: center;
     padding: 0 30px;
 }
@@ -11,26 +23,65 @@ nav {
     display: flex;
 }
 .container img {
-    width: 50px;
+    width: 60px;
 }
 .child {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+.a {
+    font-weight: 600;
+}
+.b {
+    font-size: 9px;
 }
 ul {
     display: flex;
-    background
+    gap: 40px;
+
 }
 li {
     list-style: none;
-    
+}
+.materi {
+    position: relative;
+}
+
+/* submenu awal hidden */
+.submenu {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-20px);
+    left: 100%;
+    background-color: teal;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.3s ease;
+}
+
+/* aktif */
+.submenu.active {
+    opacity: 1;
+    transform: translateY(-50%) translateX(20px);
+    pointer-events: auto;
 }
 a {
     text-decoration: none;
+    color: white;
 }
 nav span {
     color: white;
 }
+
 .satu {
     width: 400px;
 }
@@ -41,4 +92,20 @@ img {
     background: blue;
     padding: 0 0 90px 0;
     border-radius: 10px;
+}
+
+.wrapper {
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%; 
+}
+section {
+    width: 100vw;   /* 🔥 full lebar layar */
+    height: 93vh;  /* full tinggi layar */
+    flex-shrink: 0; /* biar ga ngecil */
+}
+.home {
+    text-align: center;
+    
 }
